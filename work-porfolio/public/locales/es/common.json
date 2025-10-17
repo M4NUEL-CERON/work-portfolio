@@ -1,18 +1,18 @@
 {
   "hero": {
     "greeting": "Hola, soy",
-    "name": "Manuel",
-    "title": "Desarrollador Full Stack & Diseñador UI/UX",
-    "description": "Apasionado por crear experiencias digitales increíbles y soluciones innovadoras",
+    "name": "Manuel Cerón",
+    "title": "Desarrollador Full Stack",
+    "description": "Especializado en Backend con experiencia en React, Node.js y Python. Apasionado por crear soluciones robustas y escalables.",
     "viewProjects": "Ver Proyectos",
     "contact": "Contactar"
   },
   "about": {
     "title": "Sobre Mí",
-    "description1": "Soy un desarrollador apasionado con experiencia creando aplicaciones web modernas y eficientes. Me especializo en tecnologías como React, Next.js, Node.js, y bases de datos.",
-    "description2": "Mi objetivo es siempre crear código limpio, escalable y soluciones que realmente impacten a los usuarios finales y aporten valor a las empresas.",
+    "description1": "Soy un desarrollador Full Stack con 1 año de experiencia laboral, especializado en Backend. Graduado de FUNCIPORTEC en Popayán, Cauca. He trabajado en empresas como Quantum Developers y Certiblock Medellín.",
+    "description2": "Mi pasión está en el desarrollo Backend, creando APIs robustas con AdonisJS, MySQL, Redis y servicios de AWS. También manejo Frontend con React, Next.js y Astro para crear experiencias completas.",
     "projectsCompleted": "Proyectos Completados",
-    "yearsExperience": "Años de Experiencia",
+    "yearsExperience": "Año de Experiencia",
     "satisfiedClients": "Clientes Satisfechos"
   },
   "skills": {
