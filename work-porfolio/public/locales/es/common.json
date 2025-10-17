@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Manuel",
+    "title": "Desarrollador Full Stack & Diseñador UI/UX",
+    "description": "Apasionado por crear experiencias digitales increíbles y soluciones innovadoras",
+    "viewProjects": "Ver Proyectos",
+    "contact": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description1": "Soy un desarrollador apasionado con experiencia creando aplicaciones web modernas y eficientes. Me especializo en tecnologías como React, Next.js, Node.js, y bases de datos.",
+    "description2": "Mi objetivo es siempre crear código limpio, escalable y soluciones que realmente impacten a los usuarios finales y aporten valor a las empresas.",
+    "projectsCompleted": "Proyectos Completados",
+    "yearsExperience": "Años de Experiencia",
+    "satisfiedClients": "Clientes Satisfechos"
+  },
+  "skills": {
+    "title": "Habilidades & Tecnologías",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "Plataforma completa de comercio electrónico con carrito de compras, pagos integrados y panel de administración."
+    },
+    "taskManagement": {
+      "title": "Task Management App",
+      "description": "Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y análisis de productividad."
+    },
+    "portfolio": {
+      "title": "Portfolio Website",
+      "description": "Sitio web personal con diseño responsivo, animaciones suaves y optimización SEO."
+    },
+    "viewDemo": "Ver Demo",
+    "viewCode": "Código"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¡Trabajemos juntos!",
+    "description": "¿Tienes un proyecto en mente? Me encantaría escuchar sobre él y ver cómo puedo ayudarte a hacerlo realidad.",
+    "email": "Email:",
+    "phone": "Teléfono:",
+    "location": "Ubicación:",
+    "form": {
+      "name": "Tu Nombre",
+      "email": "Tu Email",
+      "subject": "Asunto",
+      "message": "Tu Mensaje",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados."
+  },
+  "language": {
+    "switch": "Cambiar idioma"
+  }
+}

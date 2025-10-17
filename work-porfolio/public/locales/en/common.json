@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Manuel",
+    "title": "Full Stack Developer & UI/UX Designer",
+    "description": "Passionate about creating amazing digital experiences and innovative solutions",
+    "viewProjects": "View Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "description1": "I'm a passionate developer with experience creating modern and efficient web applications. I specialize in technologies like React, Next.js, Node.js, and databases.",
+    "description2": "My goal is always to create clean, scalable code and solutions that truly impact end users and add value to companies.",
+    "projectsCompleted": "Projects Completed",
+    "yearsExperience": "Years of Experience",
+    "satisfiedClients": "Satisfied Clients"
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "Complete e-commerce platform with shopping cart, integrated payments and admin panel."
+    },
+    "taskManagement": {
+      "title": "Task Management App",
+      "description": "Task management application with real-time collaboration, notifications and productivity analytics."
+    },
+    "portfolio": {
+      "title": "Portfolio Website",
+      "description": "Personal website with responsive design, smooth animations and SEO optimization."
+    },
+    "viewDemo": "View Demo",
+    "viewCode": "Code"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together!",
+    "description": "Do you have a project in mind? I'd love to hear about it and see how I can help you make it a reality.",
+    "email": "Email:",
+    "phone": "Phone:",
+    "location": "Location:",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "language": {
+    "switch": "Switch language"
+  }
+}

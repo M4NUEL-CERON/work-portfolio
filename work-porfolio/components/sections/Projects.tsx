@@ -1,71 +1,73 @@
+import { useTranslation } from '../../hooks/useTranslation';
+
 export default function Projects() {
+  const { t } = useTranslation();
+
   return (
-    <section id="proyectos" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Proyectos Destacados</h2>
+    <section id="proyectos" className="py-20 relative">
+      <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-sm"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projects.title')}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-              <span className="text-white text-lg font-medium">E-commerce Platform</span>
+          <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+            <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+              <span className="text-white text-lg font-medium">{t('projects.ecommerce.title')}</span>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">E-commerce Platform</h3>
-              <p className="text-gray-600 mb-4">
-                Plataforma completa de comercio electrónico con carrito de compras, 
-                pagos integrados y panel de administración.
+              <h3 className="text-xl font-bold text-white mb-3">{t('projects.ecommerce.title')}</h3>
+              <p className="text-gray-300 mb-4">
+                {t('projects.ecommerce.description')}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">React</span>
-                <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Node.js</span>
-                <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">MongoDB</span>
+                <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-green-900 text-green-300 rounded-full text-sm">Node.js</span>
+                <span className="px-3 py-1 bg-yellow-900 text-yellow-300 rounded-full text-sm">MongoDB</span>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Ver Demo</a>
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Código</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewDemo')}</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewCode')}</a>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-              <span className="text-white text-lg font-medium">Task Management App</span>
+          <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+            <div className="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+              <span className="text-white text-lg font-medium">{t('projects.taskManagement.title')}</span>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Task Management App</h3>
-              <p className="text-gray-600 mb-4">
-                Aplicación de gestión de tareas con colaboración en tiempo real, 
-                notificaciones y análisis de productividad.
+              <h3 className="text-xl font-bold text-white mb-3">{t('projects.taskManagement.title')}</h3>
+              <p className="text-gray-300 mb-4">
+                {t('projects.taskManagement.description')}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Next.js</span>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">TypeScript</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Prisma</span>
+                <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">Next.js</span>
+                <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-purple-900 text-purple-300 rounded-full text-sm">Prisma</span>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Ver Demo</a>
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Código</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewDemo')}</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewCode')}</a>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-              <span className="text-white text-lg font-medium">Portfolio Website</span>
+          <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+            <div className="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+              <span className="text-white text-lg font-medium">{t('projects.portfolio.title')}</span>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Portfolio Website</h3>
-              <p className="text-gray-600 mb-4">
-                Sitio web personal con diseño responsivo, animaciones suaves 
-                y optimización SEO.
+              <h3 className="text-xl font-bold text-white mb-3">{t('projects.portfolio.title')}</h3>
+              <p className="text-gray-300 mb-4">
+                {t('projects.portfolio.description')}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">React</span>
-                <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">CSS3</span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Vercel</span>
+                <span className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-pink-900 text-pink-300 rounded-full text-sm">CSS3</span>
+                <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Ver Demo</a>
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">Código</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewDemo')}</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">{t('projects.viewCode')}</a>
               </div>
             </div>
           </div>
