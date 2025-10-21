@@ -6,7 +6,7 @@ const translations = {
     hero: {
       greeting: "Hola, soy",
       name: "Manuel",
-      title: "Desarrollador Full Stack & Diseñador UI/UX",
+      title: "Desarrollador Full Stack",
       description: "Apasionado por crear experiencias digitales increíbles y soluciones innovadoras",
       viewProjects: "Ver Proyectos",
       contact: "Contactar"
@@ -65,7 +65,7 @@ const translations = {
     hero: {
       greeting: "Hello, I'm",
       name: "Manuel",
-      title: "Full Stack Developer & UI/UX Designer",
+      title: "Full Stack Developer",
       description: "Passionate about creating amazing digital experiences and innovative solutions",
       viewProjects: "View Projects",
       contact: "Contact"

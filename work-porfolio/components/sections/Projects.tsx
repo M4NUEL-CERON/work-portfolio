@@ -63,7 +63,6 @@ export default function Projects() {
 
   return (
     <section ref={sectionRef} id="proyectos" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-gray-800/30 to-gray-900/40 backdrop-blur-sm"></div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0">

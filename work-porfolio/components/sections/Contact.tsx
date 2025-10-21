@@ -77,7 +77,6 @@ export default function Contact() {
 
   return (
     <section ref={sectionRef} id="contacto" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 via-gray-700/40 to-gray-800/50 backdrop-blur-sm"></div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0">

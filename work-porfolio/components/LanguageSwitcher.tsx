@@ -35,11 +35,7 @@ export default function LanguageSwitcher() {
                 : 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600'
             }`}
           >
-            {/* Flag emoji with animation */}
-            <span className="inline-block transform transition-transform duration-300 hover:rotate-12">
-              🇪🇸
-            </span>
-            <span className="ml-2">ES</span>
+            <span>ES</span>
             
             {/* Active indicator */}
             {router.locale === 'es' && (
@@ -55,11 +51,7 @@ export default function LanguageSwitcher() {
                 : 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-600'
             }`}
           >
-            {/* Flag emoji with animation */}
-            <span className="inline-block transform transition-transform duration-300 hover:rotate-12">
-              🇺🇸
-            </span>
-            <span className="ml-2">EN</span>
+            <span>EN</span>
             
             {/* Active indicator */}
             {router.locale === 'en' && (
