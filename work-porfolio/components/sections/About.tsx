@@ -132,7 +132,7 @@ export default function About() {
           </div>
 
           {/* Enhanced stats with advanced animations */}
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div 
               className={`text-center group transform transition-all duration-1000 hover:scale-110 hover:-translate-y-2 ${
                 isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
