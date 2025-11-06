@@ -107,7 +107,7 @@ export default function Hero() {
           </div>
 
           {/* Photo Frame - Right side */}
-          <div className="flex md:justify-right md:ml-28">
+          <div className="flex md:justify-right md:ml-28 mb-5 md:mb-0 justify-center">
             <div className="relative group">
               {/* Main frame */}
               <div className="relative w-72 h-72 rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-blue-500/30">
