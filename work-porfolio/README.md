@@ -20,6 +20,39 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Configuración de EmailJS
+
+Para que el formulario de contacto funcione, necesitas configurar EmailJS:
+
+1. **Crea una cuenta en [EmailJS](https://www.emailjs.com/)**
+
+2. **Conecta tu servicio de correo:**
+   - Ve a "Email Services" en el dashboard
+   - Conecta Gmail, Outlook u otro servicio de correo
+   - Copia el **Service ID**
+
+3. **Crea una plantilla de correo:**
+   - Ve a "Email Templates"
+   - Crea una nueva plantilla con estos campos:
+     - `{{user_name}}` - Nombre del remitente
+     - `{{user_email}}` - Email del remitente
+     - `{{subject}}` - Asunto del mensaje
+     - `{{message}}` - Mensaje
+   - Copia el **Template ID**
+
+4. **Obtén tu Public Key:**
+   - Ve a "Account" > "General"
+   - Copia tu **Public Key**
+
+5. **Crea un archivo `.env.local` en la raíz del proyecto:**
+   ```env
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=tu_service_id_aqui
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=tu_template_id_aqui
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=tu_public_key_aqui
+   ```
+
+6. **Reinicia el servidor de desarrollo** para que las variables de entorno se carguen.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,13 +1,16 @@
 import { useTranslation } from '../../hooks/useTranslation';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
 import { SiGmail, SiGooglemaps } from 'react-icons/si';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
-  const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Intersection Observer for scroll animations
@@ -44,13 +47,60 @@ export default function Contact() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitStatus('idle');
+    setSubmitMessage('');
+
+    if (!formRef.current) {
       setIsSubmitting(false);
-    }, 2000);
+      return;
+    }
+
+    // Verificar que las variables de entorno estén configuradas
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setSubmitStatus('error');
+      setSubmitMessage('Error de configuración. Por favor, contacta al administrador.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Inicializar EmailJS con la clave pública
+      emailjs.init(publicKey);
+
+      // Enviar el formulario
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        formRef.current
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus('success');
+        setSubmitMessage('¡Mensaje enviado exitosamente! Te responderé pronto.');
+        // Limpiar el formulario
+        formRef.current.reset();
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+          setSubmitStatus('idle');
+          setSubmitMessage('');
+        }, 5000);
+      }
+    } catch (error: any) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setSubmitMessage(
+        error.text || 'Error al enviar el mensaje. Por favor, intenta nuevamente.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const copyEmail = async () => {
@@ -163,7 +213,7 @@ export default function Contact() {
                   </div>
                   <div className="ml-3 md:ml-4 flex-1 min-w-0">
                     <p className="text-xs md:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-medium">Gmail</p>
-                    <p className="text-sm md:text-base text-white font-medium group-hover:text-red-300 transition-colors duration-300 break-all">
+                    <p className="text-xs sm:text-sm md:text-base text-white font-medium group-hover:text-red-300 transition-colors duration-300 truncate" title="juanmanuelceronfernandez123@gmail.com">
                       juanmanuelceronfernandez123@gmail.com
                     </p>
                     {emailCopied && (
@@ -254,70 +304,59 @@ export default function Contact() {
           >
             {/* Animated background gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-blue-600/5 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="relative">
                 <input 
                   type="text" 
+                  name="user_name"
                   placeholder={t('contact.form.name')} 
-                  className={`w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:scale-105 focus:shadow-lg focus:shadow-blue-500/25 text-sm md:text-base ${
-                    focusedField === 'name' ? 'ring-2 ring-blue-500 scale-105 shadow-lg shadow-blue-500/25' : ''
-                  }`}
-                  onFocus={() => setFocusedField('name')}
-                  onBlur={() => setFocusedField(null)}
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
                   required 
                 />
-                <div className={`absolute inset-0 bg-blue-500/10 rounded-lg scale-0 transition-transform duration-300 origin-center ${
-                  focusedField === 'name' ? 'scale-100' : ''
-                }`}></div>
               </div>
 
               <div className="relative">
                 <input 
                   type="email" 
+                  name="user_email"
                   placeholder={t('contact.form.email')} 
-                  className={`w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:scale-105 focus:shadow-lg focus:shadow-blue-500/25 text-sm md:text-base ${
-                    focusedField === 'email' ? 'ring-2 ring-blue-500 scale-105 shadow-lg shadow-blue-500/25' : ''
-                  }`}
-                  onFocus={() => setFocusedField('email')}
-                  onBlur={() => setFocusedField(null)}
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
                   required 
                 />
-                <div className={`absolute inset-0 bg-blue-500/10 rounded-lg scale-0 transition-transform duration-300 origin-center ${
-                  focusedField === 'email' ? 'scale-100' : ''
-                }`}></div>
               </div>
 
               <div className="relative">
                 <input 
                   type="text" 
+                  name="subject"
                   placeholder={t('contact.form.subject')} 
-                  className={`w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:scale-105 focus:shadow-lg focus:shadow-blue-500/25 text-sm md:text-base ${
-                    focusedField === 'subject' ? 'ring-2 ring-blue-500 scale-105 shadow-lg shadow-blue-500/25' : ''
-                  }`}
-                  onFocus={() => setFocusedField('subject')}
-                  onBlur={() => setFocusedField(null)}
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
                   required 
                 />
-                <div className={`absolute inset-0 bg-blue-500/10 rounded-lg scale-0 transition-transform duration-300 origin-center ${
-                  focusedField === 'subject' ? 'scale-100' : ''
-                }`}></div>
               </div>
 
               <div className="relative">
                 <textarea 
+                  name="message"
                   placeholder={t('contact.form.message')} 
                   rows={4}
-                  className={`w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:scale-105 focus:shadow-lg focus:shadow-blue-500/25 resize-none text-sm md:text-base ${
-                    focusedField === 'message' ? 'ring-2 ring-blue-500 scale-105 shadow-lg shadow-blue-500/25' : ''
-                  }`}
-                  onFocus={() => setFocusedField('message')}
-                  onBlur={() => setFocusedField(null)}
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm md:text-base"
                   required
                 ></textarea>
-                <div className={`absolute inset-0 bg-blue-500/10 rounded-lg scale-0 transition-transform duration-300 origin-center ${
-                  focusedField === 'message' ? 'scale-100' : ''
-                }`}></div>
               </div>
+
+              {/* Mensaje de estado */}
+              {submitStatus !== 'idle' && (
+                <div 
+                  className={`p-3 rounded-lg text-sm md:text-base transition-all duration-300 ${
+                    submitStatus === 'success' 
+                      ? 'bg-green-500/20 border border-green-500/50 text-green-300' 
+                      : 'bg-red-500/20 border border-red-500/50 text-red-300'
+                  }`}
+                >
+                  {submitMessage}
+                </div>
+              )}
 
               <button 
                 type="submit" 

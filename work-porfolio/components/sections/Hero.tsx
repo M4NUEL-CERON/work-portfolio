@@ -92,14 +92,14 @@ export default function Hero() {
         >
           <a 
             href="#proyectos" 
-            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1"
+            className=" px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1"
           >
             {t('hero.viewProjects')}
           </a>
           
           <a 
             href="#contacto" 
-            className="mb-10 px-6 py-3 bg-transparent text-blue-400 border border-blue-400 rounded-lg font-medium transition-all duration-300 hover:bg-blue-400 hover:text-gray-900 hover:shadow-lg hover:shadow-blue-400/25 hover:-translate-y-1"
+            className="mb-10 md:mb-0 px-6 py-3 bg-transparent text-blue-400 border border-blue-400 rounded-lg font-medium transition-all duration-300 hover:bg-blue-400 hover:text-gray-900 hover:shadow-lg hover:shadow-blue-400/25 hover:-translate-y-1"
           >
             {t('hero.contact')}
           </a>
